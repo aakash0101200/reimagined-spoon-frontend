@@ -1,35 +1,112 @@
-body{
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    text-align: center;
-    padding:0px;
-    margin:0px;
-    background-color : aliceblue;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-/* navbar */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: aliceblue;
+}
+
 .navbar {
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar ul{
-    list-style-type: none;
-    padding:0px;
-    margin: 0px;
+.container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    background-color: hsl(219, 38%, 21%);
+    max-width: 1200px;
+    margin: auto;
+    padding: 0.6rem 2rem;
+
 }
-.navbar a{
-    color:hsl(233, 47%, 96%);
-    text-decoration: none;
-    display:block;
-    padding:15px;
-    font-size: 1.1em;
+
+.logo {
+    font-size: 1.5rem;
     font-weight: bold;
+    color: #007BFF;
 }
-.navbar a:hover {
-    background-color: hsl(219, 38%, 10%);
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 1.5em;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: hsl(211, 100%, 50%);
+}
+
+.hero {
+    background-color: aliceblue;
+    text-align: center;
+    padding: 9em 3em;
+    color: hsl(0, 0%, 13%);
+}
+
+.hero-content {
+    margin: auto;
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: hsl(0, 0%, 33%);
+
+    margin-bottom: 2rem;
+}
+
+.hero-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 5px;
+    gap: 0.5em;
+
+}
+
+.hero-form input {
+    border: none;
+    padding: 0.75rem 1em;
+    font-size: 1rem;
+    border-radius: 6px;
+    flex: 1;
+    outline: none;
+    min-width: 200px;
+}
+
+.hero-form button {
+    background-color: hsl(211, 100%, 60%);
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-form button:hover {
+    background-color: hsl(211, 100%, 50%);;
+
 }
