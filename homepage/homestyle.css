@@ -37,6 +37,7 @@ body {
     list-style-type: none;
     display: flex;
     gap: 1.5em;
+    
 }
 
 .nav-links li a {
@@ -81,7 +82,8 @@ body {
     padding: 0.5em;
     border-radius: 5px;
     gap: 0.5em;
-
+    max-width: 600px;
+    margin: auto;
 }
 
 .hero-form input {
@@ -92,6 +94,7 @@ body {
     flex: 1;
     outline: none;
     min-width: 200px;
+    align-items: center;
 }
 
 .hero-form button {
@@ -107,6 +110,5 @@ body {
 }
 
 .hero-form button:hover {
-    background-color: hsl(211, 100%, 50%);;
-
+    background-color: hsl(211, 100%, 50%);
 }
