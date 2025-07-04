@@ -1,33 +1,9 @@
 /*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
-.sticky {
-  position: sticky;
-}
-.z-50 {
-  z-index: 50;
-}
 .container {
   width: 100%;
 }
-.mx-auto {
-  margin-inline: auto;
-}
 .block {
   display: block;
-}
-.flex {
-  display: flex;
-}
-.w-full {
-  width: 100%;
-}
-.items-center {
-  align-items: center;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.text-\[\#0d0d0d\] {
-  color: #0d0d0d;
 }
 .uppercase {
   text-transform: uppercase;
