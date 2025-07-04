@@ -1,115 +1,34 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
+.sticky {
+  position: sticky;
 }
-
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: aliceblue;
+.z-50 {
+  z-index: 50;
 }
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0.6rem 2rem;
-
+  width: 100%;
 }
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #007BFF;
+.mx-auto {
+  margin-inline: auto;
 }
-
-.nav-links {
-    list-style-type: none;
-    display: flex;
-    gap: 1.5em;
-    
+.block {
+  display: block;
 }
-
-.nav-links li a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
+.flex {
+  display: flex;
 }
-
-.nav-links li a:hover {
-    color: hsl(211, 100%, 50%);
+.w-full {
+  width: 100%;
 }
-
-.hero {
-    background-color: aliceblue;
-    text-align: center;
-    padding: 9em 3em;
-    color: hsl(0, 0%, 13%);
+.items-center {
+  align-items: center;
 }
-
-.hero-content {
-    margin: auto;
-    max-width: 700px;
+.justify-between {
+  justify-content: space-between;
 }
-
-.hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+.text-\[\#0d0d0d\] {
+  color: #0d0d0d;
 }
-
-.hero p {
-    font-size: 1.2em;
-    color: hsl(0, 0%, 33%);
-
-    margin-bottom: 2rem;
-}
-
-.hero-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5em;
-    border-radius: 5px;
-    gap: 0.5em;
-    max-width: 600px;
-    margin: auto;
-}
-
-.hero-form input {
-    border: none;
-    padding: 0.75rem 1em;
-    font-size: 1rem;
-    border-radius: 6px;
-    flex: 1;
-    outline: none;
-    min-width: 200px;
-    align-items: center;
-}
-
-.hero-form button {
-    background-color: hsl(211, 100%, 60%);
-    padding: 0.75rem 1.25rem;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.hero-form button:hover {
-    background-color: hsl(211, 100%, 50%);
+.uppercase {
+  text-transform: uppercase;
 }
