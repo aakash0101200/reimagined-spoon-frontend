@@ -1,49 +1,100 @@
-const form = document.querySelector("form");
-const collegeID = document.getElementById("college-id");
-const password = document.getElementById("password");
-const roleSelect = document.getElementById("role");
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('loginForm');
+  const collegeID = document.getElementById('college-id');
+  const password = document.getElementById('password');
+  const roleSelect = document.getElementById('role');
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault(); // Stop default form submit
+  // Add password toggle button
+  const toggleBtn = document.createElement("button");
+  toggleBtn.type = "button";
+  toggleBtn.innerText = "Show";
+  toggleBtn.classList.add("toggle-password");
+  password.parentNode.appendChild(toggleBtn);
 
-  const idValue = collegeID.value.trim();
-  const passwordValue = password.value.trim();
-  const role = roleSelect.value;
+  loginForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const idValue = collegeID.value.trim();
+    const passwordValue = password.value.trim();
+    const roleValue = roleSelect.value.toUpperCase(); // Convert to uppercase
 
-  if (idValue === "" || passwordValue === "") {
-    alert("Please fill in all fields.");
-    return;
-  }
+    // Basic validation
+    if (!idValue || !passwordValue || roleValue === "SELECT") {
+      alert("Please fill in all fields.");
+      return;
+    }
 
-  // ✅ Simulate successful login:
-  alert("Login successful! Redirecting to " + role + " dashboard...");
+    try {
+      // Show loading state
+      const submitBtn = loginForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<div class="spinner"></div> Authenticating...';
 
-  // ✅ Redirect to dashboard based on role
-  if (role === "student") {
-    window.location.href = "student-dashboard.html";
-  } else if (role === "teacher") {
-    window.location.href = "teacher-dashboard.html";
-  } else if (role === "admin") {
-    window.location.href = "admin-dashboard.html";
-  } else {
-    alert("Unknown role!");
-  }
-});
+      
+      // Send login request to backend with role
+      const response = await fetch('http://localhost:8080/api/public/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          collegeId: idValue,
+          password: passwordValue,
+          role: roleValue // Include role in request
+        })
+      });
 
-// ✅ Toggle password visibility
-const toggleBtn = document.createElement("button");
-toggleBtn.type = "button";
-toggleBtn.innerText = "Show";
-toggleBtn.style.marginLeft = "10px";
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Login failed');
+      }
 
-password.parentNode.insertBefore(toggleBtn, password.nextSibling);
+      const data = await response.json();
+      
+      // Store token and role
+      localStorage.setItem('authToken', data.token);
+      localStorage.setItem('userRole', data.role);
+      localStorage.setItem('collegeId', idValue);
 
-toggleBtn.addEventListener("click", function() {
-  if (password.type === "password") {
-    password.type = "text";
-    toggleBtn.innerText = "Hide";
-  } else {
-    password.type = "password";
-    toggleBtn.innerText = "Show";
+      // Redirect based on role from backend response
+      redirectBasedOnRole(data.role);
+      
+    } catch (error) {
+      console.error('Login failed:', error);
+      alert(`Login failed: ${error.message || 'Invalid credentials'}`);
+      
+      // Reset button
+      const submitBtn = loginForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Sign in';
+    }
+  });
+
+  // Toggle password visibility
+  toggleBtn.addEventListener('click', function() {
+    if (password.type === 'password') {
+      password.type = 'text';
+      toggleBtn.innerText = 'Hide';
+    } else {
+      password.type = 'password';
+      toggleBtn.innerText = 'Show';
+    }
+  });
+
+  // Role-based redirection
+  function redirectBasedOnRole(role) {
+    switch(role) {
+      case 'STUDENT':
+        window.location.href = 'student-dashboard.html';
+        break;
+      case 'FACULTY':
+        window.location.href = 'teacher-dashboard.html';
+        break;
+      case 'ADMIN':
+        window.location.href = 'admin-dashboard.html';
+        break;
+      default:
+        alert(`Unknown role: ${role}`);
+    }
   }
 });
