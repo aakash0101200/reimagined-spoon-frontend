@@ -1,12 +1,12 @@
 module.exports = {
-  content: ["./homepage/**/*.html"],
+  darkMode: 'class',            // enable class-based dark mode
+  content: [
+    './public/**/*.{index,js,jsx,tx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx,html}'
+  ],
   theme: {
     extend: {
-      colors: {
-        aliceblue: '#f0f8ff',
-        white: '#ffffff',
-        blue: '#1e90ff',
-      },
+      // add any custom colors, spacing, etc.
     },
   },
   plugins: [],

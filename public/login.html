@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login-UCMP</title>
+
+  <!-- <link rel="stylesheet" href="assets\css\login_style.css" /> -->
+  <link rel="stylesheet" href="/src/output.css" />
+</head>
+
+<body class="bg-gray-900 text-gray-100">
+  <header>
+    <nav class="bg-gray-800 shadow-md">
+      <div class="w-full max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold text-blue-400">UCMP</a>
+
+        <!-- Register link -->
+        <div class="-mr-4 sm:-mr-6 lg:-mr-8 xl:-mr-12 2xl:-mr-16">
+          <a href="register.html" class="text-gray-200 font-medium hover:text-blue-400 transition">
+            Register
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class=" flex items-center justify-center min-h-[calc(100vh-80px)] bg-gray-900 text-gray-100 px-4">
+
+    <div class="bg-gray-800 w-full max-w-md rounded-lg shadow-lg px-6 py-8">
+      <h2 class="text-2xl font-bold text-blue-400 mb-2">Welcome back</h2>
+      <p class="text-2xl text-gray-300 mb-6">Sign in to your account</p>
+      <!-- form -->
+      <form id="loginForm" class="space-y-5"> <!--form id -->
+        <div>
+          <label for="role" class="block font-medium mb-1">Login as</label>
+          <select id="role" class="input-field" required>
+            <option value="STUDENT">Student</option>
+            <option value="FACULTY">Teacher</option>
+            <option value="ADMIN">Admin</option>
+          </select>
+          <div id="roleError" class="text-red-500 text-sm mt-1 hidden">Please select your role
+          </div>
+        </div>
+
+        <!-- college id -->
+        <div>
+          <label for="college-id" class="block font-medium mb-1">College ID</label>
+          <input type="text" id="college-id" placeholder="Enter your college ID" class="input-field" required />
+        </div>
+        <!-- password -->
+        <div>
+          <div class="flex justify-between items-center mb-1">
+
+            <label for="password" class="block font-medium">Password</label>
+            <!-- show/hide -->
+
+            <label class="text-sm text-gray-300 flex items-center gap-1 cursor-pointer select-none">
+              <input type="checkbox" id="togglePassword" class="accent-blue-500" />
+              Show
+            </label>
+          </div>
+
+
+          <input type="password" id="password" placeholder="Enter your password" class="input-field" required />
+        </div>
+
+        <!-- options -->
+
+        <div class="flex items-center justify-between text-sm text-gray-400">
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="accent-blue-600" />
+            Remember me
+          </label>
+          <a href="#" id="forgotPassword" class="hover:text-blue-400">Forgot password?</a>
+        </div>
+        <!-- Button -->
+        <button type="submit" id="loginBtn" class="btn-primary flex justify-center items-center gap-2">
+          <span id="btnText">Sign in</span>
+          <div id="spinner" class="hidden w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin">
+          </div>
+        </button>
+
+
+        <p class="text-sm text-center mt-4 text-gray-400">
+          Don't have an account?
+          <a href="register/register.html " class="hover:text-blue-400">Register here</a>
+        </p>
+
+      </form>
+    </div>
+  </main>
+  <!-- <script src="assets/js/login_script.js"></script> -->
+
+</body>
+
+</html>

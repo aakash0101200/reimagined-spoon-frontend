@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "new-folder",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,9 +8,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "type": "commonjs",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
     "tailwindcss": "^4.1.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aakash0101200/reimagined-spoon-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aakash0101200/reimagined-spoon-frontend/issues"
+  },
+  "homepage": "https://github.com/aakash0101200/reimagined-spoon-frontend#readme",
+  "description": ""
 }
